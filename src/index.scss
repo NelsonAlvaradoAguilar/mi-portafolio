@@ -1,0 +1,46 @@
+@use "./style/parcials/_mixin" as *;
+@use "./style/parcials/_variables" as *;
+
+:root {
+  @include bodyStyle();
+ 
+}
+
+a {
+
+}
+a:hover {
+ 
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+
+
+}
+
+h1 {
+ 
+  @include Titles();
+}
+
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

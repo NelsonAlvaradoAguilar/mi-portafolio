@@ -7,7 +7,7 @@
   align-items: center;
 
   @include card();
-  color: black;
+ 
   &__container {
     display: flex;
     flex-direction: column;
