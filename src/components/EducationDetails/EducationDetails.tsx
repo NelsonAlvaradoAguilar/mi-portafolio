@@ -18,6 +18,7 @@ function Education({ educationData, titles }: EducationProps) {
       (institution) => institution.id === selectedId
     );
     setDetails(selectedEducation || null);
+console.log(selectedEducation);
 
     if (selectedEducation) {
       setId(selectedEducation.id);

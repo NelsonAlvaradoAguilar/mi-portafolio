@@ -3,6 +3,7 @@ import {
   educationData,
   educationDataTitles,
   workExperience,
+  workExperienceTitles,
  
 
 } from "../../apiData/ApiData";
@@ -16,7 +17,7 @@ function MainBodyPage() {
       <AboutMe aboutMeData={aboutMeData} />
 
       <Education educationData={educationData} titles={educationDataTitles} />
- <WorkExperience JobExperience={workExperience}/>
+ <WorkExperience JobExperience={workExperience} JobTitle={workExperienceTitles}/>
     </>
   );
 }

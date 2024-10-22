@@ -1,40 +1,80 @@
 import { useEffect, useState } from "react";
-import { JobExperience, JobTitle } from "../../apiData/Types";
-import { workExperienceTitles,workExperience } from "../../apiData/ApiData";
+import {
+  JobExperienceProps,
+  Base,
+  JobExperienceData,
+} from "../../apiData/Types";
+import "./WorkExperience.scss";
 import { useNavigate } from "react-router-dom";
 
-import { JobExperienceProps } from "../../apiData/Types"; // Import your JobExperience type
 import Titles from "../Titles/Titles";
+import { workExperience } from "../../apiData/ApiData";
+import BaseDetails from "../BaseDetails/BaseDetails";
 
-function WorkExperience({ JobExperience, }: JobExperienceProps) {
+function WorkExperience({ JobExperience, JobTitle }: JobExperienceProps) {
   // State to hold job details
-  const [showDetails, setShowDetails] = useState<JobExperience | null>(null);
+  const [showDetails, setShowDetails] = useState<Base | undefined>(undefined);
+  const [data, setData] = useState<JobExperienceData[]>([]);
 
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setData(data);
+  }, [workExperience]);
 
   const handleSelect = (selectedId: number | undefined) => {
-    const selectedDetails = JobExperience?.find(
+    const selectedDetails = data?.find(
       (position) => position.id === selectedId
     );
-    setShowDetails(selectedDetails || null); // Ensure to handle null case
-    setOpen(true);
-    console.log(showDetails);
-    
+    setShowDetails(selectedDetails || undefined); // Ensure to handle null case
+
+    console.log(selectedDetails);
   };
 
   const close = () => {
-    setOpen(false);
+    setShowDetails(undefined);
   };
 
   return (
     <section className="experience" id="experience">
       <h1>Experience</h1>
-      <Titles titles={workExperienceTitles} handleSelect={handleSelect} />
-      {open && showDetails && <div className="experience__description"></div>}
+      <Titles
+        titles={JobTitle}
+        handleSelect={handleSelect}
+        details={showDetails}
+      />
+
+      {showDetails && (
+        <div className="experience__description">
+          {" "}
+          <div className="job-details">
+            <p className="job-details__text">
+              {showDetails?.company}, {showDetails?.location}
+            </p>
+            <p className="job-details__text">
+              {showDetails?.startDate} - {showDetails?.endDate}
+            </p>
+            <ul className="job-details__responsibilities">
+              {showDetails.responsibilities?.map((responsibility, index) => (
+                <li className="job-details__text" key={index}>
+                  {responsibility}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={() => {
+                close();
+              }}
+              className="job-details__closeBtn"
+            >
+              {"close"}{" "}
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
 
 export default WorkExperience;
+/** onClick={() => {
+         closeJobDescription()
+        }} */

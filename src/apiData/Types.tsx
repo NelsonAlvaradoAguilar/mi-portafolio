@@ -14,6 +14,7 @@ export type Base = {
   endDate?: string;
   responsibilities?: string[];
 };
+
 export type AboutMeData = {
   id?: string;
   image?: string;
@@ -39,11 +40,15 @@ export type TitlesProps = {
   details?: Base | null;
   handleSelect: (selectedItem: number | undefined) => void;
 };
+export type DetailsData=Base; 
+export type DetailsProps = {
+    detailsBase?: DetailsData[];
+   
+  };
 
-
-export type JobExperience = Base;
+export type JobExperienceData = Base;
 export type JobTitle = Pick<Base, "id" | "position">;
 export type JobExperienceProps = {
-  JobExperience?: JobExperience[];
+  JobExperience?: JobExperienceData[];
   JobTitle?: JobTitle[];
 };

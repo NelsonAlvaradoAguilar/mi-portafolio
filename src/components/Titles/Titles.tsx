@@ -1,11 +1,12 @@
 import React from "react";
 import { TitlesProps } from "../../apiData/Types"; // Import the shared type
-
+import "./Titles.scss"
+import "../EducationDetails/EducationDetails.scss"
 function Titles({ titles, details, handleSelect }: TitlesProps) {
   return (
     <ul
-      className={`education__subcontainer ${
-        details ? "education__activated education__subcontainer--subtitles" : ""
+      className={`titles ${
+        details ? "titles__activated titles__subcontainer--subtitles" : ""
       }`}
     >
       {titles?.map((title) => (
@@ -14,8 +15,8 @@ function Titles({ titles, details, handleSelect }: TitlesProps) {
           onClick={() => handleSelect(title?.id)}
         >
           <h3
-            className={`education__subtitle ${
-              details?.id === title?.id ? "education__subtitle--active" : ""
+            className={`titles__subtitle ${
+              details?.id === title?.id ? "titles_subtitle--active" : ""
             }`}
           >
             {title?.title}
