@@ -1,19 +1,9 @@
-
+import { AboutMeProps } from "../../apiData/Types";
 
 // Define the structure of the data
-type AboutMeData=  {
-  id?: string;
-  image?: string;
-  name?: string;
-  paragraph1?: string;
-  paragraph2?: string;
-}
 
-// Define the props for the component (assuming the data is passed as props)
-type AboutMeProps ={
-  aboutMeData: AboutMeData[];
-}
 
+import { Link } from "react-router-dom";
 import "./AboutMe.scss"
 
 function AboutMe({ aboutMeData }: AboutMeProps) {
@@ -33,8 +23,9 @@ function AboutMe({ aboutMeData }: AboutMeProps) {
             </article>
           </div>
         ))}
+    
       </section>
     );
   
-  }
+  }//   { <Link className="b" to={"/Education"} target="_blank"> </Link>}
 export default AboutMe;

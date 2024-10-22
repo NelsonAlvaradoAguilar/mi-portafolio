@@ -1,0 +1,35 @@
+
+@use "../../style/parcials/_mixin" as *;
+@use "../../style/parcials/_variables" as *;
+
+.titles{
+ 
+    @include listDecoration();
+    &__subcontainer {
+
+      width: 100%;
+      &--subtitles {
+        display: flex;
+        flex-flow: row wrap;
+        width: 20rem;
+        justify-content: space-evenly;
+      }
+    }
+    &__subtitle {
+      @include Titles();
+     font-size: 1rem;
+  
+  
+      &--active {
+        color: $colorText;
+        @include SecActiveButton();
+     
+      }
+    }
+    &__activated {
+      width: 18rem;
+    }
+    &__link {
+      @include listDecoration();
+    }
+  }
