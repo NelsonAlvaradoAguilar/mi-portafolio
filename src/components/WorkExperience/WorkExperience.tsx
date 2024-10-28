@@ -1,36 +1,25 @@
-import { useEffect, useState } from "react";
-import {
-  JobExperienceProps,
-  Base,
-  JobExperienceData,
-} from "../../apiData/Types";
+import {useState } from "react";
+import { JobExperienceProps, JobExperienceData } from "../../apiData/Types";
 import "./WorkExperience.scss";
-import { useNavigate } from "react-router-dom";
 
 import Titles from "../Titles/Titles";
-import { workExperience } from "../../apiData/ApiData";
-import BaseDetails from "../BaseDetails/BaseDetails";
 
 function WorkExperience({ JobExperience, JobTitle }: JobExperienceProps) {
-  // State to hold job details
-  const [showDetails, setShowDetails] = useState<Base | undefined>(undefined);
-  const [data, setData] = useState<JobExperienceData[]>([]);
+  const [showDetails, setShowDetails] = useState<JobExperienceData | null>(
+    null
+  );
 
-  useEffect(() => {
-    setData(data);
-  }, [workExperience]);
-
-  const handleSelect = (selectedId: number | undefined) => {
-    const selectedDetails = data?.find(
+  const handleSelect = (selectedId: number |void) => {
+    const selectedDetails = JobExperience?.find(
       (position) => position.id === selectedId
     );
-    setShowDetails(selectedDetails || undefined); // Ensure to handle null case
+    setShowDetails(selectedDetails || null); // Ensure to handle null case
 
     console.log(selectedDetails);
   };
 
   const close = () => {
-    setShowDetails(undefined);
+    setShowDetails(null);
   };
 
   return (

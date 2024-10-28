@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./EducationDetails.scss";
 import Titles from "../Titles/Titles";
-import { EducationProps, EducationData } from "../../apiData/Types"
+import { EducationProps, EducationData } from "../../apiData/Types";
 
 function Education({ educationData, titles }: EducationProps) {
   const [details, setDetails] = useState<EducationData | null>(null);
   const [data, setData] = useState<EducationData[]>([]);
-  const [id, setId] = useState<number | undefined>(undefined);
-  const [openDetails, setOpenDetails] = useState(false);
+
+;
 
   useEffect(() => {
     setData(educationData);
@@ -18,11 +18,9 @@ function Education({ educationData, titles }: EducationProps) {
       (institution) => institution.id === selectedId
     );
     setDetails(selectedEducation || null);
-console.log(selectedEducation);
+    console.log(selectedEducation);
 
-    if (selectedEducation) {
-      setId(selectedEducation.id);
-    }
+ 
   };
 
   function close() {
@@ -36,11 +34,11 @@ console.log(selectedEducation);
         <Titles titles={titles} handleSelect={handleSelect} details={details} />
       </div>
 
-      {details || openDetails ? (
+      {details ? (
         <div className="education__details">
           <section
             className={`institutions ${
-              !openDetails ? "institutions__hide" : ""
+              !details ? "institutions__hide" : ""
             }`}
           >
             <ul className="institutions__container">
@@ -63,12 +61,8 @@ console.log(selectedEducation);
               </li>
             </ul>
             <div className="institutions__btn-container">
-              <div
-                onClick={() => close()}
-                className="institutions__close"
-              >
+              <div onClick={() => close()} className="institutions__close">
                 <p> {"Close"}</p>
-             
               </div>
             </div>
           </section>

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { TitlesProps } from "../../apiData/Types"; // Import the shared type
 import "./Titles.scss"
 import "../EducationDetails/EducationDetails.scss"
