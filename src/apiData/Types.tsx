@@ -1,5 +1,5 @@
 export type Base = {
-  id?: number;
+  id?: number | undefined;
   title?: string;
   school?: string;
   type?: string;
@@ -40,10 +40,10 @@ export type TitlesProps = {
   details?: Base | null;
   handleSelect: (selectedItem: number | undefined) => void;
 };
-export type DetailsData=Base; 
+
 export type DetailsProps = {
-    detailsBase?: DetailsData[];
-   
+    details?: Base;
+    onClose: () => void;
   };
 
 export type JobExperienceData = Base;
@@ -51,4 +51,5 @@ export type JobTitle = Pick<Base, "id" | "position">;
 export type JobExperienceProps = {
   JobExperience?: JobExperienceData[];
   JobTitle?: JobTitle[];
+  handleSelect?: (selectedItem: number | undefined) => void;
 };

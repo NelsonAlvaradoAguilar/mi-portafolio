@@ -101,6 +101,7 @@
   background-color: #ffffffcf;
   display: flex;
   flex-direction: column;
+
   @include tablet {
     margin-right: 2.5rem;
     margin-left: 2.5rem;
