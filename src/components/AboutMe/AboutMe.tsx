@@ -1,9 +1,5 @@
 import { AboutMeProps } from "../../apiData/Types";
 
-// Define the structure of the data
-
-
-import { Link } from "react-router-dom";
 import "./AboutMe.scss"
 
 function AboutMe({ aboutMeData }: AboutMeProps) {
