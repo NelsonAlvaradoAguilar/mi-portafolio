@@ -12,7 +12,12 @@ export type Base = {
   location?: string;
   startDate?: string;
   endDate?: string;
-  responsibilities?: string[];
+  responsibilities?: string[],
+  projectTitle?:string,
+  description?:string,
+  techStack?:string,
+  images?:string,
+  link?:string,
 };
 
 export type AboutMeData = {
@@ -38,6 +43,7 @@ export type EducationProps = {
 export type TitlesProps = {
   titles?: TitleData[];
   details?: Base | null;
+  image?:Base | null
   handleSelect: (selectedItem: number | undefined) => void;
 };
 
@@ -45,7 +51,10 @@ export type DetailsProps = {
     details?: Base;
     onClose: () => void;
   };
+export type ProjectsProps = {
+  titles?:TitlesProps;
 
+}
 export type JobExperienceData = Base;
 export type JobTitle = Pick<Base, "id" | "position">;
 export type JobExperienceProps = {

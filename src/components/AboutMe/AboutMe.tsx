@@ -1,8 +1,10 @@
+
 import { AboutMeProps } from "../../apiData/Types";
 
 import "./AboutMe.scss"
 
 function AboutMe({ aboutMeData }: AboutMeProps) {
+  
     return (
       <section className="bio" id="about">
         {aboutMeData?.map((data) => (
@@ -19,7 +21,7 @@ function AboutMe({ aboutMeData }: AboutMeProps) {
             </article>
           </div>
         ))}
-    
+    <div></div>
       </section>
     );
   
