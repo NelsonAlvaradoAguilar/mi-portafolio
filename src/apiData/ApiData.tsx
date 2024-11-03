@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useEffect } from "react";
+
 const aboutMeData = [
     {
       id: "1",
@@ -106,4 +109,47 @@ const aboutMeData = [
       title: "Mixologist",
     },
   ];
-  export {aboutMeData,educationData,educationDataTitles,workExperience,workExperienceTitles}
+
+
+  const projects = [
+    {
+      id: "0",
+      title: "capstone",
+  
+      projectTitle: "Capstone Latin Club",
+  
+      description:
+        "As my final project for graduation at BrainStation, I developed Latin Club, a web application tailored to connect the Hispanic community in Northumberland County. The app addresses challenges that arose from the growing number of community members relying on a WhatsApp group for communication, where crucial information was often lost or overlooked. Latin Club serves as a centralized hub where users can share events, important announcements, and cultural experiences. The goal was to enhance collaboration and strengthen community ties, providing a more efficient platform to ensure everyone stays informed and engaged.",
+      techStack: [
+        "React",
+        "Node.js",
+        "Express.js",
+        "PostgreSQL",
+        "Axios",
+        "Knex.js",
+        "OAuth",
+        "Jest",
+        "Vercel",
+        "CSS3",
+        "HTML5",
+        "JavaScript (ES6+)",
+        "REST APIs",
+      ],
+      images: ["apstoneimage2, capstoneimage3, capstoneimage4, capstoneimage5"],
+      link: "https://github.com/NelsonAlvaradoAguilar/capstone",
+    },
+    {
+      id: "1",
+      title: "GoogleFit",
+      projectTitle: "Google Fit",
+  
+      description:
+        "This project was part of the BrainStation Hackathon, focused on enhancing user engagement with the Google Fit platform. I designed and developed two highly interactive sections for the dashboard, incorporating seamless animations and modal functionality to elevate user experience. These features allowed users to easily track their fitness goals and monitor health metrics, offering a fluid, intuitive, and visually engaging interface. Using React for the front end and deploying it on Vercel ensured quick and smooth performance, while giving users real-time feedback on their progress. The added interactivity and clean design contributed to the overall innovation of the project, making it stand out during the competition.",
+      techStack: ["React", "Vercel", "JavaScript", "CSS Animations", "HTML5"],
+      images: ["d", "googleFitImage2", "googleFitImage3"],
+      link: "https://google-fit-team2.vercel.app/",
+    },
+  ];
+ 
+
+  export {aboutMeData,educationData,educationDataTitles,workExperience,workExperienceTitles,projects}
