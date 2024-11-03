@@ -1,3 +1,4 @@
+// Base Type (common properties across types)
 export type Base = {
   id?: number | undefined;
   title?: string;
@@ -12,14 +13,15 @@ export type Base = {
   location?: string;
   startDate?: string;
   endDate?: string;
-  responsibilities?: string[],
-  projectTitle?:string,
-  description?:string,
-  techStack?:string,
-  images?:string,
-  link?:string,
+  responsibilities?: string[];
+  projectTitle?: string;
+  description?: string;
+  techStack?: string[] ;
+  images?: string[];
+  link?: string;
 };
 
+// About Me Types
 export type AboutMeData = {
   id?: string;
   image?: string;
@@ -27,38 +29,51 @@ export type AboutMeData = {
   paragraph1?: string;
   paragraph2?: string;
 };
+
 export type AboutMeProps = {
   aboutMeData: AboutMeData[];
 };
 
+// Education Types
 export type EducationData = Base;
-
-export type TitleData = Pick<Base, "id" | "title">;
 
 export type EducationProps = {
   educationData: EducationData[];
   titles: TitleData[];
 };
-//component
+
+// Title Types (Used in both Education and Job Experience)
+export type TitleData = Pick<Base, "id" | "title">;
+
 export type TitlesProps = {
   titles?: TitleData[];
-  details?: Base | null;
-  image?:Base | null
+  details?: Base | Base[]| null;
+  image?: Base | Base[]| null;
   handleSelect: (selectedItem: number | undefined) => void;
 };
 
-export type DetailsProps = {
-    details?: Base;
-    onClose: () => void;
-  };
-export type ProjectsProps = {
-  titles?:TitlesProps;
+// Project Types
+export type ProjectTitles = Pick<Base, "id" | "projectTitle" | "image">;
 
-}
+export type ProjectsProps = {
+  titles?: ProjectTitles[];
+  details?: Base [] | null;
+};
+
+// Job Experience Types
 export type JobExperienceData = Base;
+
 export type JobTitle = Pick<Base, "id" | "position">;
+
 export type JobExperienceProps = {
   JobExperience?: JobExperienceData[];
   JobTitle?: JobTitle[];
   handleSelect?: (selectedItem: number | undefined) => void;
+};
+
+// Details Component Types
+export type DetailsProps = {
+  details?: Base | null;
+  onClose: () => void;
+  open?: boolean;
 };

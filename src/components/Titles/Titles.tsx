@@ -16,7 +16,7 @@ function Titles({ titles, details, handleSelect }: TitlesProps) {
         >
           <h3
             className={`titles__subtitle ${
-              details?.id === title?.id ? "titles_subtitle--active" : ""
+              details === title?.id ? "titles_subtitle--active" : ""
             }`}
           >
             {title?.title}

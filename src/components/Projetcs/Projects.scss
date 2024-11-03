@@ -1,0 +1,16 @@
+@use "../../style/parcials/_mixin" as *;
+@use "../../style/parcials/_variables" as *;
+.project {
+  // border: 1px solid $backgroundColor2;
+  //border-radius: 8px;
+  // background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  //background-image: url(../../assets/background/christian-stahl-xmGkzY--Fgg-unsplash.jpg);
+  align-items: center;
+
+
+//  @include card();
+
+  
+}

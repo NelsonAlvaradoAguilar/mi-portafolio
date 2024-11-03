@@ -1,34 +1,60 @@
-
+import { Link } from "react-router-dom";
 import { DetailsProps } from "../../apiData/Types";
+import "./Details.scss";
 
-const Details = ({ details, onClose}:DetailsProps) => {
-  if (!details) return null;
+// Define props interface
 
+const Details = ({ details, onClose, open }: DetailsProps) => {
   return (
-    <div className="education__details">
-      <section className="institutions">
-        <ul className="institutions__container">
-          <li className="institutions__list">
+    <ul className="details">
+      <li className="details__li">
+        <h2 className="details__title">{details?.projectTitle}</h2>
+        <p className="details__description">{details?.description}</p>
+      </li>
+      <li>
+        <div className="details__images">
+          {details?.images?.map((image, imgIndex) => (
             <img
-              className="institutions__image"
-              alt={details.school}
-              src={details.image}
+              key={imgIndex}
+              className="details__image"
+              src={image}
+              alt={`details ${details?.projectTitle} Image ${imgIndex}`}
             />
-            <div>
-              <h3>{details.school || details.company} {details.type}</h3>
-              <p>{details.city ||details.location}</p>
-              <p>{details.career || details.type}</p>
-              <p>{details.date || details.startDate && details.endDate}</p>
-            </div>
-          </li>
-        </ul>
-        <div className="institutions__btn-container">
-          <div onClick={onClose} className="institutions__close">
-            <p>Close</p>
-          </div>
+          ))}
         </div>
-      </section>
-    </div>
+      </li>
+      {details && (
+        <>
+          <li className="details__tech-stack">
+            <h3>Tech Stack:</h3>
+            <ul className="details__tech-stack">
+              {details.techStack?.map((tech, techIndex) => (
+                <li key={techIndex} className="details__tech-item">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </li>
+          <Link
+            className="details__site-link"
+            to={details.link || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Website
+          </Link>
+          <li>
+            <img
+              onClick={onClose}
+              className={`details__dropdown ${
+                open ? "details__dropdown--down" : ""
+              }`}
+              alt="Close detailss dropdown"
+            />
+          </li>
+        </>
+      )}
+    </ul>
   );
 };
 
