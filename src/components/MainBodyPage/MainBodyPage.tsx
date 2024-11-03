@@ -1,7 +1,8 @@
+
 import {
   aboutMeData,
   educationData,
-  educationDataTitles,
+
   workExperience,
   workExperienceTitles,
  projects
@@ -9,17 +10,20 @@ import {
 } from "../../apiData/ApiData";
 import AboutMe from "../AboutMe/AboutMe";
 import Education from "../EducationDetails/EducationDetails";
-import ProjectList from "../Projetcs/Projects";
+import Project from "../Projetcs/Projects";
+
 import WorkExperience from "../WorkExperience/WorkExperience";
 
 function MainBodyPage() {
+
+
   return (
     <>
       <AboutMe aboutMeData={aboutMeData} />
 
-      <Education educationData={educationData} titles={educationDataTitles} />
+      <Education educationData={educationData} titles={educationData} />
  <WorkExperience JobExperience={workExperience} JobTitle={workExperienceTitles}/>
- <ProjectList />
+<Project titles={projects} details={projects}/>
     </>
   );
 }
